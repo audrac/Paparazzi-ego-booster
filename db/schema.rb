@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_14_175222) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_16_183751) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_175222) do
     t.bigint "paparazzi_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "booking_location"
+    t.datetime "meeting_date"
+    t.text "special_request"
     t.index ["paparazzi_id"], name: "index_bookings_on_paparazzi_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -30,6 +33,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_175222) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "location"
+    t.decimal "price"
     t.index ["user_id"], name: "index_paparazzis_on_user_id"
   end
 
