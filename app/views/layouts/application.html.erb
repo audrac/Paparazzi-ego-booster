@@ -11,11 +11,12 @@
   </head>
 
   <body>
-      <%# <%= render "shared/navbar" %> %>
+      <%= render 'shared/navbar' %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-      <%= render "shared/flashes" %>
     <%= yield %>
-      <%# <h2>Chop, chop <%= current_user.email %></h2> %>
+    <% if user_signed_in? %>
+      <h2>Chop, chop <%= current_user.email %></h2>
+    <% end %>
   </body>
 </html>
