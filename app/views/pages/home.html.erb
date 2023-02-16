@@ -2,6 +2,7 @@
   <div class="container">
     <h1><strong>Anyone</strong> can feel like a <strong>celebrity</strong>!</h1>
     <p>All you need is a little ego boost...<br>With your personal paparazzi!</p>
-    <button class="btn btn-outline-light">Sign up!</button>
+    <%= link_to "Sign up!", new_user_registration_path, class: "btn btn-outline-light" %>
+    <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-outline-light" %>
   </div>
 </div>
