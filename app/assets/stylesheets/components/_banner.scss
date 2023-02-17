@@ -1,29 +1,52 @@
 .banner {
   background-size: cover;
   padding: 150px 0;
-  min-height: 100%;
-  min-width: 1024px;
-
-  /* Set up proportionate scaling */
   width: 100%;
-  height: auto;
-
-  /* Set up positioning */
-  position: fixed;
-  top: 0;
-  left: 0;
+  height: 100vh;
+  -webkit-background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
 }
 
 .banner h1 {
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-size: 40px;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .banner p {
-  font-size: 20px;
+  font-size: 24px;
+  line-height: 32px;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+@media only screen and (max-width: 767px){
+  .banner-content{
+    margin: auto;
+    padding-top: 70px;
+    width: 95%;
+  }
+
+  .banner h1, p{
+    text-align: center;
+    line-height: 40px;
+  }
+
+  .banner p {
+    padding-top: 5px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    flex-grow: 0;
+  }
+
+  .buttons a ~ a {
+    margin-left: 5px;
+  }
 }
