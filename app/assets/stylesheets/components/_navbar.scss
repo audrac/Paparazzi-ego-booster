@@ -15,7 +15,7 @@
 .nav-link {
     // color: #a69a8c;
     color: white;
-    font-family: 'Cinzel', serif;
+    //font-family: 'Cinzel', serif;
 }
 
 #navbarDropdown {
@@ -27,8 +27,12 @@
 
 .nav-item {
   margin-top: 10px;
-  margin-left: 20px}
+  margin-left: 20px
+}
 
+.nav-item:hover {
+  color:white;
+}
 .navbar-nav {
   justify-content: center;
   align-items: center;
@@ -37,5 +41,6 @@
     height: 60px;
  }
 .dropdown-item {
-  font-family: 'Cinzel', serif;
+  //font-family: 'Cinzel', serif;
+
 }
