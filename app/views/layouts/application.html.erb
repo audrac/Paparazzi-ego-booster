@@ -12,9 +12,10 @@
 
   <body>
       <%= render 'shared/navbar' %>
-      <p class="notice"><%= notice %></p>
+      <%= render 'shared/footer' %>
       <p class="alert"><%= alert %></p>
     <%= yield %>
+       </div>
     <% if user_signed_in? %>
       <h2>Chop, chop <%= current_user.user_name %> !</h2>
     <% end %>
