@@ -9,6 +9,6 @@ class User < ApplicationRecord
   has_many :paparazzis
 
   validates :user_name, :password, :email, presence: true
-  validates :user_name, :email, uniqueness: true
+  validates :email, uniqueness: true
   validates :password, length: { minimum: 6 }
 end
