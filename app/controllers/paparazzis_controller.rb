@@ -1,5 +1,5 @@
 class PaparazzisController < ApplicationController
   def index
-    paparazzi = Paparazzi.all
+    @paparazzi = Paparazzi.all
   end
 end
