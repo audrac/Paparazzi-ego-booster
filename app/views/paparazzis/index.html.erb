@@ -2,24 +2,24 @@
   <h1>Choose your paparazzi</h1>
 </div>
 <div class="row">
-  <% @paparazzis.each do |paparazzi| %>
+  <% @paparazzi.each do |paparazzi| %>
     <div class="col-md-4">
       <div class="flat-card">
-        <div class="flat-card-image" style="background-image: url('')"></div>
+        <div class="card-category" style="background-image: url(<%= cl_image_path(paparazzi.photo.key, height: 200)%>)"></div>
         <div class="flat-card-content">
           <div class="flat-card-title">
             <h4><%= paparazzi.name %></h4>
           </div>
-          <p><%= paparazzi.price %></p>
+          <p>Price: <%= paparazzi.price %> $/h</p>
           <div class="flex">
             <div class="flex align-items-center">
-              <span><%= paparazzi.rating %></span>
+              <span>Rating: <%= paparazzi.rating %> ⭐️</span>
             </div>
-            <div class="flex align-items-center ms-3">
-              <span><%= paparazzi.location %></span>
+            <div class="flex align-items-center">
+              <span>Country: <%= paparazzi.location %></span>
             </div>
-            <div class="flex align-items-center ms-3">
-              <span><%= paparazzi.style %></span>
+            <div class="flex align-items-center">
+              <span> Moto: <%= paparazzi.style %></span>
             </div>
           </div>
         </div>
