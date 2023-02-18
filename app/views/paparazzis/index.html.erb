@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Choose your paparazzi</h1>
+</div>
+<div class="row">
+  <% @paparazzis.each do |paparazzi| %>
+    <div class="col-md-4">
+      <div class="flat-card">
+        <div class="flat-card-image" style="background-image: url('')"></div>
+        <div class="flat-card-content">
+          <div class="flat-card-title">
+            <h4><%= paparazzi.name %></h4>
+          </div>
+          <p><%= paparazzi.price %></p>
+          <div class="flex">
+            <div class="flex align-items-center">
+              <span><%= paparazzi.rating %></span>
+            </div>
+            <div class="flex align-items-center ms-3">
+              <span><%= paparazzi.location %></span>
+            </div>
+            <div class="flex align-items-center ms-3">
+              <span><%= paparazzi.style %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
