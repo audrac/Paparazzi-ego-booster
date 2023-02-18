@@ -11,13 +11,18 @@
   </head>
 
   <body>
+    <div class="body-container">
       <%= render 'shared/navbar' %>
-      <%= render 'shared/footer' %>
+      <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-    <%= yield %>
-       </div>
-    <% if user_signed_in? %>
-      <h2>Chop, chop <%= current_user.user_name %> !</h2>
-    <% end %>
+      <div class="main">
+        <%= yield %>
+      </div>
+      <%= render 'shared/footer' %>
+
+      <%# if user_signed_in? %>
+        <!-- <h2>Chop, chop <%#= current_user.user_name %> !</h2> -->
+      <%# end %>
+    </div>
   </body>
 </html>
