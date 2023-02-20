@@ -1,5 +1,6 @@
 <%= simple_form_for(@booking) do |f| %>
   <div class="form-inputs">
+    <%= f.association :paparazzi %>
     <%= f.input :booking_location %>
     <%= f.input :meeting_date %>
     <%= f.input :special_request %>
