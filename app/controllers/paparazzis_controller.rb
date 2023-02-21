@@ -32,7 +32,7 @@ class PaparazzisController < ApplicationController
   private
 
   def paparazzi_params
-    params.require(:paparazzi).permit(:name, :price, :location, :style, :photo)
+    params.require(:paparazzi).permit(:name, :price, :location, :style, :photo, :description)
   end
 
   def set_paparazzi
