@@ -1,0 +1,28 @@
+.new-pap-form {
+  margin-top: 26px;
+  h1 {
+    color: #192436e1;
+  }
+}
+
+.form-inputs {
+   color: #192436;
+   margin-top: 50px;
+}
+
+.form-actions-button {
+   border: none;
+   width: 160px;
+   border-radius: 50px;
+   margin-top: 60px;
+   background-color: #192436;
+   opacity: 0.8;
+   .btn {
+    color: white;
+    opacity: 0.75;
+   }
+
+   .btn:hover {
+    opacity: 1;
+   }
+}
