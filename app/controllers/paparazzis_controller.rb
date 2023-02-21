@@ -28,6 +28,7 @@ class PaparazzisController < ApplicationController
       end
     end
   end
+
   private
 
   def paparazzi_params
