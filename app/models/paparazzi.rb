@@ -5,4 +5,5 @@ class Paparazzi < ApplicationRecord
   belongs_to :user
 
   validates :name, :style, presence: true
+  validates :description, presence: true
 end

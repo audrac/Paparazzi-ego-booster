@@ -41,7 +41,8 @@ images = [
     rating: rand(3..5),
     location: Faker::Address.country,
     style: Faker::TvShows::MichaelScott.quote,
-    user_id: User.all.sample.id
+    user_id: User.all.sample.id,
+    description: Faker::Lorem.paragraph(sentence_count: 30)
   )
 
   file = URI.parse(images.sample).open

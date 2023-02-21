@@ -1,0 +1,63 @@
+<div>
+  <div class="pap-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(<%= asset_path('black-amp.jpg') %>);">
+    <div class="container">
+      <div class="pap-banner-content">
+        <h1><%= @paparazzi.name %></h1>
+        <p><%= @paparazzi.user.company_name %></p>
+        <p><%= @paparazzi.style %></p>
+      </div>
+      <div class="buttons">
+        <%= link_to "Book now!", new_user_registration_path, class: "btn btn-outline-light" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="meta-details shadow">
+    <div class="container d-flex justify-content-center align-items-center">
+      <div class="the-meta">
+        <div class="small-body">
+          <span class="d-none d-md-inline">Location:</span>
+          <strong><%= @paparazzi.location %></strong>
+        </div>
+        <div class="divider"></div>
+      </div>
+      <div class="the-meta">
+        <span class="d-none d-md-inline">Rating:</span>
+        <strong>&nbsp;<%= @paparazzi.rating %> / 5</strong>
+        <div class="divider"></div>
+      </div>
+      <div class="the-meta">
+        <span class="d-none d-md-inline">Price: </span>
+        <strong>&nbsp;£<%= @paparazzi.price.to_i %></strong>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <%= @paparazzi.description %>
+  </div>
+
+  <div class="d-flex justify-content-center mt-3 border-bottom">
+    <p><strong>Reviews</strong></p>
+    <ul class="list-group">
+      <% @paparazzi.reviews.each do |review| %>
+        <li class="list-group-item"><%= review.content %></li>
+        <li class="list-group-item"><%= review.rating %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="section-spacing bg-grey mt-5 mb-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-8">
+          <h2 class="text-center">FAQs</h2>
+          <p><strong>How many Paparazzi will attend the event?<br></strong>As many as you book! We have no limit on the number of paparazzi you can book. The price quoted is for our standard 2 hour slot.</p>
+          <p><strong>Are prices the same for every paparazzi?<br></strong>No. Our prices vary depending on the experience of the paparazzi and the bizareness of your request.</p>
+          <p><strong>What do the Paparazzi wear at the event?</strong><br>Classic retro (Macs and trilbys), modern (leather jackets), suited and booted (smart stylish suits).</p>
+          <p><strong>How good are the Photographers?</strong><br>We use professional photographers for all of our bookings, meaning you have peace of mind&nbsp;for the quality of your images.&nbsp;</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
