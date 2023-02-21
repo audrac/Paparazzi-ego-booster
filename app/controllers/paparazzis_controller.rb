@@ -1,4 +1,5 @@
 class PaparazzisController < ApplicationController
+  before_action :set_paparazzi, only: :show
 
   def index
     @paparazzis = policy_scope(Paparazzi).all
@@ -31,5 +32,9 @@ class PaparazzisController < ApplicationController
 
   def paparazzi_params
     params.require(:paparazzi).permit(:name, :price, :location, :style, :photo)
+  end
+
+  def set_paparazzi
+    @paparazzi = Paparazzi.find(params[:id])
   end
 end
