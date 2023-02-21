@@ -1,20 +1,24 @@
 class BookingsController < ApplicationController
-  before_action :set_paparazzi, only: %i[new create]
+  # before_action :set_paparazzi, only: %i[new create]
 
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking).all
   end
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    authorize @booking
+    # raise
+    @paparazzi = Paparazzi.find(params[:booking][:paparazzi_id])
     @booking.paparazzi = @paparazzi
-
     if @booking.save
-      redirect_to paparazzi_path(@paparazzi)
+      redirect_to paparazzis_path(@paparazzi)
     else
       render :new, status: :unprocessable_entity
     end
@@ -22,11 +26,11 @@ class BookingsController < ApplicationController
 
   private
 
-  def set_paparazzi
-    @paparazzi = Paparazzi.find(params[:paparazzi_id])
-  end
+  # def set_paparazzi
+  #   @paparazzi = Paparazzi.find(params[:paparazzi_id])
+  # end
 
   def booking_params
-    params.require(:booking).permit(:booking_location, :meeting_date, :special_request)
+    params.require(:booking).permit(:paparazzi_id, :booking_location, :meeting_date, :special_request)
   end
 end
