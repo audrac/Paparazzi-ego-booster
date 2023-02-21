@@ -2,7 +2,7 @@
   <h1>Choose your paparazzi</h1>
 </div>
 <div class="row">
-  <% @paparazzi.each do |paparazzi| %>
+  <% @paparazzis.each do |paparazzi| %>
     <div class="col-md-4">
       <div class="flat-card">
         <div class="card-category" style="background-image: url(<%= cl_image_path(paparazzi.photo.key, height: 200)%>)"></div>

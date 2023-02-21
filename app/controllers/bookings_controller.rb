@@ -2,16 +2,18 @@ class BookingsController < ApplicationController
   # before_action :set_paparazzi, only: %i[new create]
 
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking).all
   end
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    authorize @booking
     # raise
     @paparazzi = Paparazzi.find(params[:booking][:paparazzi_id])
     @booking.paparazzi = @paparazzi

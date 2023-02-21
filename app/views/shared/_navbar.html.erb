@@ -22,9 +22,11 @@
           <li class="nav-item">
            <p> <%= link_to "Paparazzis", paparazzis_path, class: "nav-link" %> </p>
           </li>
+         <% if current_user.company_name != nil %>
            <li class="nav-item">
            <p> <%= link_to "New paparazzi", new_paparazzi_path, class: "nav-link" %> </p>
           </li>
+          <% end %>
           <li class="nav-item">
            <p> <%= link_to "Bookings", bookings_path, class: "nav-link" %> </p>
           </li>

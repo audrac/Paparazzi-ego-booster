@@ -1,18 +1,21 @@
 class PaparazzisController < ApplicationController
 
   def index
-    @paparazzi = Paparazzi.all
+    @paparazzis = policy_scope(Paparazzi).all
   end
 
   def show
+    authorize @paparazzi
   end
 
   def new
     @paparazzi = Paparazzi.new
+    authorize @paparazzi
   end
 
   def create
     @paparazzi = Paparazzi.new(paparazzi_params)
+    authorize @paparazzi
     @paparazzi.user = current_user
     respond_to do |format|
       if @paparazzi.save
