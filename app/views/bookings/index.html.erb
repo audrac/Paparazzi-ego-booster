@@ -1,12 +1,14 @@
 <div class="container">
-  <h1>Bookings:</h1>
-    <% @bookings.each do |booking|%>
-      <li><%= booking.paparazzi.name %></li>
-      <li><%= booking.booking_location %></li>
-      <li><%= booking.meeting_date %></li>
-      <li><%= booking.special_request %></li>
-      <li><%= booking.paparazzi.rating %> ⭐️</li>
-      <br>
-    <% end %>
-    <%= link_to "Home", root_path %>
+  <div>
+    <h1>Bookings</h1>
+      <% @bookings.each do |booking|%>
+        <li><%= booking.paparazzi.name %></li>
+        <li><%= booking.booking_location %></li>
+        <li><%= booking.meeting_date %></li>
+        <li><%= booking.special_request %></li>
+        <li><%= booking.paparazzi.rating %> ⭐️</li>
+        <br>
+      <% end %>
+      <%= link_to "Home", root_path %>
+  </div>
 </div>
