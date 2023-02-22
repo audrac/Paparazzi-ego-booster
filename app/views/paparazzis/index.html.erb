@@ -14,25 +14,26 @@
             <div class="paparazzi-card">
               <div class="paparazzi-card-image" style="background-image: url(<%= cl_image_path(paparazzi.photo.key, height: 200)%>)"></div>
                 <div class="paparazzi-card-content">
-                  <div class="paparazzi-card-title">
-                  <%= link_to paparazzi_path(paparazzi), class:"text-decoration-none" do %>
-                    <h4><%= paparazzi.name %></h4>
-                  <% end %>
+                  <div>
+                    <div class="paparazzi-card-title">
+                    <%= link_to paparazzi_path(paparazzi), class:"text-decoration-none" do %>
+                      <h4><%= paparazzi.name %></h4>
+                    <% end %>
+                    </div>
+                    <div class="flex-align-items-center">
+                      <span><strong>Rating:</strong> <%=paparazzi.rating %>
+                      <i class="fas fa-star star-yellow"></i></span>
+                    </div>
+                    <div class="flex-align-items-center">
+                      <span><strong>Country:</strong> <%= paparazzi.location %></span>
+                    </div>
+                    <div class="flex">
+                      <span> <strong> Moto:</strong> <%= paparazzi.style %></span>
+                    </div>
                   </div>
-                  <div class="flex-align-items-center">
-                    <span><strong>Rating:</strong> <%=paparazzi.rating %>
-                    <i class="fas fa-star star-yellow"></i></span>
-                  </div>
-                  <div class="flex-align-items-center">
-                    <span><strong>Country:</strong> <%= paparazzi.location %></span>
-                  </div>
-                  <div class="flex">
-                    <span> <strong> Moto:</strong> <%= paparazzi.style %></span>
-                  </div>
-                  <br>
 
                   <div class="d-flex justify-content-between">
-                    <h6><strong>Price: £ </strong> <%= paparazzi.price %> /2h </h6>
+                    <h6 class="align-self-center m-0"><strong>Price:</strong> £<%=paparazzi.price %> /2h </h6>
                     <%= link_to "Book!", new_booking_path, class: "btn btn-flat" %>
                   </div>
                 </div>
