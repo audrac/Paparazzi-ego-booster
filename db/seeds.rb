@@ -40,7 +40,7 @@ images = [
     price: rand(15..20),
     rating: rand(3..5),
     location: Faker::Address.country,
-    style: Faker::TvShows::MichaelScott.quote,
+    style: Faker::GreekPhilosophers.quote,
     user_id: User.all.sample.id,
     description: Faker::Lorem.paragraph(sentence_count: 30)
   )
