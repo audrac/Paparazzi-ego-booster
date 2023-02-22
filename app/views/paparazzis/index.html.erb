@@ -1,12 +1,13 @@
 <div>
 <div class="position-sticky bg-grey">
   <div class="paparazzi-banner text-center" style="background-image: url(<%= asset_path('paparazzis-index.gif')%>);">
-    <div class="container">
+    <div class="container-paparazzi">
       <h1>Check out our selection of professional Paparazzi!</h1>
     </div>
   </div>
 
-  <div class="container d-flex justify-content-center align-items-center">
+  <div class="container">
+    <div class="container-paparazzi d-flex justify-content-center align-items-center">
     <div class= "row mt-4">
         <% @paparazzis.each do |paparazzi| %>
           <div class="col-md-4">
@@ -31,7 +32,7 @@
                   <br>
 
                   <div class="d-flex justify-content-between">
-                    <h6><strong>Price:</strong> <%= paparazzi.price %>£</h6>
+                    <h6><strong>Price: £ </strong> <%= paparazzi.price %> /2h </h6>
                     <%= link_to "Book!", new_booking_path, class: "btn btn-flat" %>
                   </div>
                 </div>
@@ -39,4 +40,5 @@
           </div>
         <% end %>
     </div>
+  </div>
 </div>
