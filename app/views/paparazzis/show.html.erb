@@ -1,9 +1,8 @@
-<div>
+<div class="w-100">
   <div class="pap-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(<%= asset_path('black-amp.jpg') %>);">
     <div class="container">
       <div class="pap-banner-content">
         <h1><%= @paparazzi.name %></h1>
-        <p><%= @paparazzi.user.company_name %></p>
         <p><%= @paparazzi.style %></p>
       </div>
       <div class="buttons">
@@ -28,13 +27,22 @@
       </div>
       <div class="the-meta">
         <span class="d-none d-md-inline">Price: </span>
-        <strong>&nbsp;£<%= @paparazzi.price.to_i %></strong>
+        <strong>&nbsp;£<%= @paparazzi.price.to_i %> per 2 hrs</strong>
       </div>
     </div>
   </div>
 
-  <div>
-    <%= @paparazzi.description %>
+  <div class="d-flex justify-content-center mt-5 border-bottom">
+    <div class="card mb-5" style="width: 45rem;">
+      <img src="<%= cl_image_path(@paparazzi.photo.key, height: 200)%>" class="card-img-top" alt="Image of a paparazzi">
+      <div class="card-body">
+        <h5 class="card-title"><strong>A bit about <%= @paparazzi.name.split.first %>:</strong></h5>
+        <p class="card-text"><%= @paparazzi.description %></p>
+        <%= link_to(new_booking_path, class: "btn btn-outline-dark") do %>
+          Book <%= @paparazzi.name.split.first %>!
+        <% end%>
+      </div>
+    </div>
   </div>
 
   <div class="d-flex justify-content-center mt-3 border-bottom">
