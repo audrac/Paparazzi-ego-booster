@@ -1,16 +1,41 @@
 <div class="container">
+    <h1>Bookings</h1>
   <div class="container-bookings">
-    <div class="new-pap-form">
-      <h1>Bookings</h1>
-        <% @bookings.each do |booking|%>
-          <li><%= booking.paparazzi.name %></li>
-          <li><%= booking.booking_location %></li>
-          <li><%= booking.meeting_date %></li>
-          <li><%= booking.special_request %></li>
-          <li><%= booking.paparazzi.rating %> ⭐️</li>
-          <br>
-        <% end %>
-        <%= link_to "Home", root_path %>
+    <div class="booking">
+      <div class="row m-5">
+        <%# <div class="col-md-8"> %>
+          <% @bookings.each do |booking|%>
+            <div class="booking-card">
+              <div class="p-card-image" style="background-image: url(<%= cl_image_path(booking.paparazzi.photo.key, height: 200)%>)"></div>
+                <div class="booking-card-content">
+                  <div class="booking-card-name">
+                    <%= link_to paparazzi_path(booking.paparazzi), class:"text-decoration-none" do %>
+                          <h4><%= booking.paparazzi.name %></h4>
+                    <% end %>
+                  </div>
+                  <div class="location">
+                    <span><strong>Country:</strong> <%= booking.paparazzi.location %></span>
+                  </div>
+                  <div class="meeting-date">
+                    <span><strong>Meet Up:</strong> <%= booking.meeting_date.time %></span>
+                  </div>
+                  <div class="special-request">
+                    <span><strong>Specials:</strong> <%= booking.special_request %></span>
+                  </div>
+                  <div class="rating">
+                    <span><strong>Rating:</strong> <%= booking.paparazzi.rating %>
+                    <i class="fas fa-star star-yellow"></i></span>
+                  </div>
+                </div>
+                <div class="review">Review
+                  <%# <%= link_to "Review", new_booking_review_path(booking) %>
+                </div>
+                <div class="cancel">Cancel</div>
+            </div>
+          <% end %>
+          <%= link_to "Home", root_path, class: "btn btn-book" %>
+        <%# </div> %>
+      </div>
     </div>
   </div>
 </div>

@@ -2,11 +2,11 @@
   <div class="form-inputs">
     <%= f.association :paparazzi %>
     <%= f.input :booking_location %>
-    <%= f.input :meeting_date %>
+    <%= f.input :meeting_date, as: :datetime, order: [:day, :month, :year] %>
     <%= f.input :special_request %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn-new-book" %>
   </div>
 <% end %>

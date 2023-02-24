@@ -7,7 +7,27 @@
   transition: background 0.3s ease;
 }
 
-.btn-flat:hover {
+.btn-flat:hover, .btn-book:hover, .btn-new-book:hover {
   background: #304465;
   color: white;
+}
+
+.btn-book {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 7px;
+  background: #192436;
+  transition: background 0.3s ease;
+  width: 120px;
+}
+
+
+
+.btn-new-book {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 7px;
+  background: #192436;
+  transition: background 0.3s ease;
+  width: 170px;
 }
