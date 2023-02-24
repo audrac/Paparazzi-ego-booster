@@ -6,4 +6,9 @@ class PagesController < ApplicationController
 
   def about
   end
+
+  def dashboard
+    @paparazzis = Paparazzi.all
+    @bookings = Booking.all
+  end
 end
