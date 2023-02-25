@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  # before_action :set_paparazzi, only: %i[new create]
+  before_action :set_booking, only: :destroy
 
   def index
     @bookings = policy_scope(Booking).all
@@ -23,11 +23,17 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    authorize @booking
+    @booking.destroy
+    redirect_to bookings_path(@bookings), status: :see_other
+  end
+
   private
 
-  # def set_paparazzi
-  #   @paparazzi = Paparazzi.find(params[:paparazzi_id])
-  # end
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def booking_params
     params.require(:booking).permit(:paparazzi_id, :booking_location, :meeting_date, :special_request)

@@ -21,4 +21,8 @@ class BookingPolicy < ApplicationPolicy
   def index?
     return true
   end
+
+  def destroy?
+    return record.user_id == user.id
+  end
 end
