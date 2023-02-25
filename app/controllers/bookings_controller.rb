@@ -30,6 +30,6 @@ class BookingsController < ApplicationController
   # end
 
   def booking_params
-    params.require(:booking).permit(:paparazzi_id, :booking_location, :meeting_date, { :datetime => :order [:day, :month, :year] }, :special_request)
+    params.require(:booking).permit(:paparazzi_id, :booking_location, :meeting_date, :special_request)
   end
 end

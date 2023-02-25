@@ -17,7 +17,7 @@
                     <span><strong>Country:</strong> <%= booking.paparazzi.location %></span>
                   </div>
                   <div class="meeting-date">
-                    <span><strong>Meet Up:</strong> <%= booking.meeting_date.time %></span>
+                    <span><strong>Meet Up:</strong> <%= booking.meeting_date.strftime("%e %b %Y %H:%M") %></span>
                   </div>
                   <div class="special-request">
                     <span><strong>Specials:</strong> <%= booking.special_request %></span>
