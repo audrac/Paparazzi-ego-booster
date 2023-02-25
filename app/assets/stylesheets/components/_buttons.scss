@@ -1,5 +1,5 @@
 
-.btn-flat {
+.btn-flat, .btn-book, .btn-new-book {
   color: white;
   padding: 8px 24px;
   border-radius: 7px;
@@ -12,22 +12,12 @@
   color: white;
 }
 
-.btn-book {
-  color: white;
-  padding: 8px 24px;
-  border-radius: 7px;
-  background: #192436;
-  transition: background 0.3s ease;
+.btn-book, .btn-new-book {
   width: 120px;
 }
 
 
 
 .btn-new-book {
-  color: white;
-  padding: 8px 24px;
-  border-radius: 7px;
-  background: #192436;
-  transition: background 0.3s ease;
   width: 170px;
 }
