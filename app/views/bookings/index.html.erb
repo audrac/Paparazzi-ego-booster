@@ -8,6 +8,7 @@
           <li><%= booking.meeting_date %></li>
           <li><%= booking.special_request %></li>
           <li><%= booking.paparazzi.rating %> ⭐️</li>
+          <%= link_to "Leave a review", new_booking_review_path(booking) %>
           <br>
         <% end %>
         <%= link_to "Home", root_path %>
