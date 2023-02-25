@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Bookings</h1>
+    <h1 class="h1-book"><strong>Bookings</strong></h1>
   <div class="container-bookings">
     <div class="booking">
       <div class="row m-5">
@@ -14,17 +14,18 @@
                     <% end %>
                   </div>
                   <div class="location">
-                    <span><strong>Country:</strong> <%= booking.paparazzi.location %></span>
+                    <span><i class="fa-solid fa-location-dot"></i> <%= booking.paparazzi.location %></span>
                   </div>
                   <div class="meeting-date">
-                    <span><strong>Meet Up:</strong> <%= booking.meeting_date.strftime("%e %b %Y %H:%M") %></span>
+                    <span><i class="fa-solid fa-calendar-days"></i> <%= booking.meeting_date.strftime("%e %b %Y %H:%M") %></span>
                   </div>
                   <div class="special-request">
                     <span><strong>Specials:</strong> <%= booking.special_request %></span>
                   </div>
                   <div class="rating">
-                    <span><strong>Rating:</strong> <%= booking.paparazzi.rating %>
-                    <i class="fas fa-star star-yellow"></i></span>
+                    <span><strong>Rating:</strong> <% booking.paparazzi.rating.times do %>
+                    <i class="fas fa-star star-yellow"></i>
+                    <% end %></span>
                   </div>
                 </div>
                 <div class="review">Review
