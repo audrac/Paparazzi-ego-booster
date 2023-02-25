@@ -1,5 +1,5 @@
 
-.btn-flat {
+.btn-flat, .btn-book, .btn-new-book {
   color: white;
   padding: 8px 24px;
   border-radius: 7px;
@@ -7,7 +7,15 @@
   transition: background 0.3s ease;
 }
 
-.btn-flat:hover {
+.btn-flat:hover, .btn-book:hover, .btn-new-book:hover {
   background: #304465;
   color: white;
+}
+
+.btn-book, .btn-new-book {
+  width: 120px;
+}
+
+.btn-new-book {
+  width: 170px;
 }

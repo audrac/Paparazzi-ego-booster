@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="dashboard-text">
+           <h4> Welcome <%= current_user.user_name %>, to your personal dashboard </h4>
+    </div>
+
+    <div class="dashboard-pap-box">
+           <%# Below is for the bookings %>
+        <div class="dashboard-bookings-box">
+          <% @paparazzis.each do |paparazzi| %>
+               <% if paparazzi.user_id == current_user.id%>
+                 <% @bookings.each do |booking| %>
+                      <% if booking.paparazzi_id == paparazzi.id %>
+                        <div class="dashboard-booking-card">
+                           <%= booking.user.user_name %> has requested a booking for <%= paparazzi.name %> in <%= booking.booking_location %>
+                             <div class="dashboard-booking-buttons">
+                               <div class="dashboard-booking-accept">
+                                  Accept
+                               </div>
+                               <div class="dashboard-booking-reject">
+                                  Reject
+                               </div>
+                             </div>
+                        </div>
+                      <% end %>
+                    <% end %>
+               <% end %>
+            <% end %>
+        </div>
+        <%# Below is for the paparazzis %>
+           <% @paparazzis.each do |paparazzi|%>
+             <% if paparazzi.user_id == current_user.id %>
+             <div class="dashboard-pap-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path paparazzi.photo.key, height: 300, crop: :fill %>')">
+                 <div class="dashboard-pap-name">
+                   <%= paparazzi.name %>
+                 </div>
+                <div class="dashboard-pap-buttons">
+                   <div class="dashboard-pap-edit">
+                   <%= link_to "Edit", edit_paparazzi_path(paparazzi) %>
+                   </div>
+                   <div class="dashboard-pap-destroy">
+                      <%= link_to 'Delete',
+                        paparazzi_path(paparazzi),
+                        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+                         %>
+                   </div>
+                </div>
+            </div>
+             <% end %>
+           <% end %>
+    </div>
+</div>

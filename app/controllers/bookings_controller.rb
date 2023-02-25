@@ -14,7 +14,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     authorize @booking
-    # raise
     @paparazzi = Paparazzi.find(params[:booking][:paparazzi_id])
     @booking.paparazzi = @paparazzi
     if @booking.save
