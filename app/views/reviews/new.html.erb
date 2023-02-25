@@ -1,0 +1,9 @@
+<div class="container">
+  <h1 class="mt-5 mb-3">How was your experience?</h1>
+
+  <%= simple_form_for [@booking, @review] do |f| %>
+    <%= f.input :comment, placeholder: "They wore an execellent hat" %>
+    <%= f.input :rating, as: :range, input_html: { min:"0", max:"5" } %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <% end %>
+</div>
