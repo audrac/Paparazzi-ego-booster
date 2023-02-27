@@ -1,5 +1,5 @@
 
-.btn-flat, .btn-book, .btn-new-book, .btn-edit-user {
+.btn-flat, .btn-book, .btn-new-book, .btn-edit-user, .btn-cancel, .btn-leave-review {
   color: white;
   padding: 8px 24px;
   border-radius: 7px;
@@ -17,10 +17,31 @@
 }
 
 .btn-new-book {
-  width: 170px;
+  width: 180px;
 }
 
 .btn-edit-user {
   width: 110px;
   margin: 10px 0;
+}
+
+.btn-cancel {
+  background: #d5272a99;
+  width: 110px;
+  margin: 10px 0;
+}
+
+.btn-cancel:hover {
+  background: #d5272a;
+  color: white;
+}
+
+.btn-leave-review {
+  background: #19243699;
+  width: 180px;
+}
+
+.btn-leave-review:hover {
+  background: #192436;
+  color: white;
 }
