@@ -43,10 +43,10 @@
         <% end %>
 
         <%# <h3>Cancel my account</h3> %>
-
+        <br>
         <p><%= link_to "Cancel my account", user_registration_path, data: { turbo_method: :delete, turbo_confirm: "Really ???" }, class: "btn-new-book", style: "text-decoration: none" %></p>
-
-        <%= link_to "Back", :back, style: "text-decoration: none" %>
+        <br>
+        <%= link_to "Back", :back, class: "btn-new-book", style: "text-decoration: none" %>
     </div>
   </div>
 </div>

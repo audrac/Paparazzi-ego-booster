@@ -35,7 +35,11 @@
           </div>
         <% end %>
 
-        <%= render "devise/shared/links" %>
+        <%# <%= render "devise/shared/links" %>
+        <br>
+        <div>
+        <%= link_to "Log in", user_session_path, class: "btn-new-book", style: "text-decoration: none" %>
+      </div>
     </div>
   </div>
 </div>
