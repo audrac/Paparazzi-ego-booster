@@ -26,7 +26,11 @@ class BookingsController < ApplicationController
   def destroy
     authorize @booking
     @booking.destroy
-    redirect_to bookings_path(@bookings), status: :see_other
+    if params[:page] == "dashboard"
+      redirect_to dashboard_path, status: :see_other
+    else
+      redirect_to bookings_path(@bookings), status: :see_other
+    end
   end
 
   private
