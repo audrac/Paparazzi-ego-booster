@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @paparazzi = Paparazzi.find(params[:booking][:paparazzi_id])
     @booking.paparazzi = @paparazzi
     if @booking.save
-      redirect_to paparazzis_path(@paparazzi)
+      redirect_to bookings_path(@bookings)
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,7 +26,11 @@ class BookingsController < ApplicationController
   def destroy
     authorize @booking
     @booking.destroy
-    redirect_to bookings_path(@bookings), status: :see_other
+    if params[:page] == "dashboard"
+      redirect_to dashboard_path, status: :see_other
+    else
+      redirect_to bookings_path(@bookings), status: :see_other
+    end
   end
 
   private
