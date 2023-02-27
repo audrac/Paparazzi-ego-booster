@@ -1,51 +1,69 @@
-<div class="container">
-    <div class="dashboard-text">
-           <h4> Welcome <%= current_user.user_name %>, to your personal dashboard </h4>
+<div class="w-100">
+  <div class="dashboard-banner text-center" style="background-image: url(<%= asset_path('dashboard.webp')%>);">
+    <div class="container">
+      <div class="dashboard-text">
+            <h4> Welcome <%= current_user.user_name.capitalize %>, to your personal dashboard </h4>
+      </div>
     </div>
+  </div>
 
-    <div class="dashboard-pap-box">
-           <%# Below is for the bookings %>
-        <div class="dashboard-bookings-box">
-          <% @paparazzis.each do |paparazzi| %>
-               <% if paparazzi.user_id == current_user.id%>
-                 <% @bookings.each do |booking| %>
-                      <% if booking.paparazzi_id == paparazzi.id %>
-                        <div class="dashboard-booking-card">
-                           <%= booking.user.user_name %> has requested a booking for <%= paparazzi.name %> in <%= booking.booking_location %>
-                             <div class="dashboard-booking-buttons">
-                               <div class="dashboard-booking-accept">
-                                  Accept
-                               </div>
-                               <div class="dashboard-booking-reject">
-                                  Reject
-                               </div>
-                             </div>
-                        </div>
-                      <% end %>
+  <div class="container d-flex justify-content-center align-items-center p-0">
+      <div class="dashboard-pap-box">
+            <%# Below is for the bookings %>
+          <div class="dashboard-bookings-box">
+          <h2 class="text-center"> Booking Requests</h2>
+            <% @paparazzis.each do |paparazzi| %>
+                <% if paparazzi.user_id == current_user.id%>
+                  <% @bookings.each do |booking| %>
+                        <% if booking.paparazzi_id == paparazzi.id %>
+                          <div class="dashboard-booking-card">
+                            <div class="dashboard-booking-card-image avatar-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path paparazzi.photo.key %>')">
+                            </div>
+                            <div class="dashboard-booking-body">
+                              <h6 class="card-title"> <i class="fa-solid fa-bell bell-yellow"></i></i> New booking request from <strong><%= booking.user.user_name.capitalize %></strong> for <strong><%= paparazzi.name %></strong></h6>
+                              <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= booking.booking_location.capitalize %>
+                              <br><i class="fa-solid fa-calendar"></i> <%=booking.meeting_date.strftime("%e %b %Y %H:%M")%></p>
+                            </div>
+                            <div class="dashboard-booking-buttons d-flex">
+                              <div class="dashboard-booking-accept">
+                                Accept
+                              </div>
+                              <div class="dashboard-booking-reject">
+                                <%= link_to 'Reject', paparazzi_path(paparazzi), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to reject it?"}, class: "text-decoration-none" %>
+                              </div>
+                            </div>
+                          </div>
+                        <% end %>
                     <% end %>
-               <% end %>
-            <% end %>
-        </div>
-        <%# Below is for the paparazzis %>
-           <% @paparazzis.each do |paparazzi|%>
-             <% if paparazzi.user_id == current_user.id %>
-             <div class="dashboard-pap-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path paparazzi.photo.key, height: 300, crop: :fill %>')">
-                 <div class="dashboard-pap-name">
-                   <%= paparazzi.name %>
-                 </div>
-                <div class="dashboard-pap-buttons">
-                   <div class="dashboard-pap-edit">
-                   <%= link_to "Edit", edit_paparazzi_path(paparazzi) %>
-                   </div>
-                   <div class="dashboard-pap-destroy">
-                      <%= link_to 'Delete',
-                        paparazzi_path(paparazzi),
-                        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-                         %>
-                   </div>
-                </div>
-            </div>
-             <% end %>
-           <% end %>
-    </div>
+                <% end %>
+              <% end %>
+          </div>
+
+          <%# Below is for the paparazzis %>
+          <h2 class="text-center">Your Paparazzis</h2>
+              <% @paparazzis.each do |paparazzi|%>
+                <% if paparazzi.user_id == current_user.id %>
+                  <div class="container">
+                    <div class="pap-cards">
+                      <div class="card-image col-md-4">
+                        <div class="dashboard-pap-card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path paparazzi.photo.key, height: 300, crop: :fill %>')">
+                        </div>
+                      </div>
+                      <div class="dashboard-pap-content col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title mt-2"><strong><%= paparazzi.name %></strong></h5>
+                          <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= paparazzi.location.capitalize %></p>
+                          <div class="dashboard-pap-buttons d-flex">
+                            <%= link_to "Edit", edit_paparazzi_path(paparazzi), class: "edit-button text-decoration-none" %>
+
+                            <%= link_to 'Delete', paparazzi_path(paparazzi), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-button text-decoration-none" %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+      </div>
+  </div>
 </div>
