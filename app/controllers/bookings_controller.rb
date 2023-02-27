@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @paparazzi = Paparazzi.find(params[:booking][:paparazzi_id])
     @booking.paparazzi = @paparazzi
     if @booking.save
-      redirect_to paparazzis_path(@paparazzi)
+      redirect_to bookings_path(@bookings)
     else
       render :new, status: :unprocessable_entity
     end

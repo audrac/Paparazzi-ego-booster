@@ -22,9 +22,11 @@
                   <span><strong>Specials:</strong> <%= booking.special_request %></span>
                 </div>
                 <div class="rating">
+                <% if booking.paparazzi.rating != nil  %>
                   <span><strong>Rating:</strong> <% booking.paparazzi.rating.times do %>
                   <i class="fas fa-star star-yellow"></i>
                   <% end %></span>
+                <% end %>
                 </div>
               </div>
               <div class="review">
