@@ -21,9 +21,11 @@
                     <% end %>
                     </div>
                     <div class="flex-align-items-center">
-                      <span><strong>Rating:</strong> <% paparazzi.rating.times do %>
-                      <i class="fas fa-star star-yellow"></i>
-                      <% end %></span>
+                      <% if paparazzi.rating != nil  %>
+                        <span><strong>Rating:</strong> <% paparazzi.rating.times do %>
+                        <i class="fas fa-star star-yellow"></i>
+                        <% end %></span>
+                      <% end %>
                     </div>
                     <div class="flex-align-items-center">
                       <span> <i class="fa-solid fa-location-dot"></i>
