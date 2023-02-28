@@ -114,7 +114,7 @@
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   height: 123px;
-  width: 119%;
+  width: 100%;
 }
 
 .dashboard-booking-card .dashboard-booking-body{
@@ -139,7 +139,7 @@
   color: white;
 }
 
-.dashboard-booking-accept {
+  .button-green{
     opacity: 0.7;
     background: #0a7d36;
     padding: 5px;
@@ -151,7 +151,12 @@
     border-radius: 5%;
     position: absolute;
     right: -128px;
-}
+    color: white;
+    text-decoration: none;
+    border: none;
+    top: -16px;
+  }
+
 
 .dashboard-booking-reject {
   background: #d5272a;
@@ -164,9 +169,12 @@
   padding-right: 19px;
   left: 462px;
   position: absolute;
+  a {
+    color: white;
+  }
 }
 
-.dashboard-booking-accept:hover {
+.button-green:hover {
   opacity: 1;
 }
 
@@ -176,4 +184,27 @@
 
 .bell-yellow{
   color: rgb(197, 158, 17);
+}
+
+.modal-body {
+  color: black;
+}
+
+.modal-title {
+  color: black;
+}
+
+.modal-header {
+  border: none;
+}
+
+.modal-footer {
+  border: none;
+  justify-content: space-evenly;
+}
+
+.modal-content {
+  border-radius: 10px;
+  background: white;
+  width: 80%;
 }
