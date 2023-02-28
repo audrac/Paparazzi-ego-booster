@@ -34,15 +34,25 @@ images = [
   "https://res.cloudinary.com/dsi8boj6y/image/upload/v1676732292/seeds%20images/20_bvvcmm.jpg"
 ]
 
+address = [
+  "5 Kaniestraat 6971 KJ Netherlands",
+  "3 Rue aux Pois Hainaut 7520 Belgium",
+  "5 Chełm County 22-110 Poland",
+  "Denham Lock Wood Skip Lane UB9 6RP England",
+  "165 Route de Pecoumère Nouvelle-Aquitaine France",
+  "6 Fürstenga Viken 1367 Norway",
+  "120 Blumenweg Leipzig 04159 Deutschland"
+]
+
 20.times do
   paparazzi = Paparazzi.new(
     name: Faker::FunnyName.name,
     price: rand(15..20),
     rating: rand(3..5),
-    location: Faker::Address.country,
-    style: Faker::GreekPhilosophers.quote,
+    location: address.sample,
+    style: Faker::Job.key_skill,
     user_id: User.all.sample.id,
-    description: Faker::Lorem.paragraph(sentence_count: 30)
+    description: Faker::Lorem.paragraph(sentence_count: 20)
   )
 
   file = URI.parse(images.sample).open

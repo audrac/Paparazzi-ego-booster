@@ -7,12 +7,11 @@ class PaparazzisController < ApplicationController
 
   def show
     authorize @paparazzi
-    @markers = @paparazzi.geocode.map do |paparazzi|
-      {
-        lat: paparazzi.latitude,
-        lng: paparazzi.longitude
-      }
-    end
+    @markers =
+      [{
+        lat: @paparazzi.latitude,
+        lng: @paparazzi.longitude
+      }]
   end
 
   def new

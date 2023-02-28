@@ -1,9 +1,14 @@
-<div class="container">
+<div class="container d-flex flex-column align-items-center">
   <h1 class="mt-5 mb-3">How was your experience?</h1>
 
-  <%= simple_form_for [@booking, @review] do |f| %>
-    <%= f.input :comment, placeholder: "They wore an execellent hat" %>
-    <%= f.input :rating, as: :range, input_html: { min:"0", max:"5" } %>
-    <%= f.submit "Submit review", class: "btn btn-primary" %>
-  <% end %>
+  <div class="mt-3" style="width: 500px">
+    <%= simple_form_for [@booking, @review], data: {controller: "scroll"} do |f| %>
+      <%= f.input :comment, placeholder: "They wore an execellent hat" %>
+      <div class="d-flex">
+        Rating:&nbsp;<p data-scroll-target="value">3</p>*
+      </div>
+      <%= f.input :rating, as: :range, input_html: { min:"1", max:"5", data: {action: "input->scroll#display"} }, label: false %>
+      <%= f.submit "Submit review", class: "btn btn-dark justify-content-center" %>
+    <% end %>
+    </div>
 </div>
