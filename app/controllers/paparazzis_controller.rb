@@ -7,6 +7,11 @@ class PaparazzisController < ApplicationController
 
   def show
     authorize @paparazzi
+    @markers =
+      [{
+        lat: @paparazzi.latitude,
+        lng: @paparazzi.longitude
+      }]
   end
 
   def new
