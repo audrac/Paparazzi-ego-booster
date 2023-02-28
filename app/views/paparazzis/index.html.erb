@@ -12,7 +12,11 @@
         <% @paparazzis.each do |paparazzi| %>
           <div class="col-md-4">
             <div class="paparazzi-card">
+              <% if paparazzi.photo.key != nil %>
               <div class="paparazzi-card-image" style="background-image: url(<%= cl_image_path(paparazzi.photo.key, height: 200)%>)"></div>
+              <% else %>
+              <div class="paparazzi-card-image" style="background-image: url(<%= asset_path('user.png')%>)"></div>
+              <% end %>
                 <div class="paparazzi-card-content">
                   <div>
                     <div class="paparazzi-card-title">
