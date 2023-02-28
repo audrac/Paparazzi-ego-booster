@@ -44,7 +44,7 @@
 
   <div class="d-flex justify-content-evenly mt-5 border-bottom">
     <div class="card mb-5" style="width: 500px;">
-      <img src="<%= cl_image_path(@paparazzi.photo.key, height: 200)%>" class="card-img-top" style="height: 350px;height: 500px;width: 100%;background-position: center;background-size: cover;object-fit: cover;" alt="Image of a paparazzi">
+      <img src="<%= cl_image_path(@paparazzi.photo.key, height: 200)%>" class="card-img-top" style="height: 350px;height: 500px;width: 100%;background-position: center;background-size: cover;object-fit: cover;"alt="Image of a paparazzi">
       <div class="card-body">
         <h5 class="card-title"><strong>A bit about <%= @paparazzi.name.split.first %>:</strong></h5>
         <p class="card-text"><%= @paparazzi.description %></p>
