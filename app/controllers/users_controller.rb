@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :user_params, only: :destroy
+  # before_action :user_params, only: :create
 
   def new
     @user = User.new
@@ -9,9 +9,17 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    # session[:user_id] = nil
+    @user.destroy
+    # flash[:success] = "User deleted"
+    redirect_to new_user_registration, status: :see_other
+  end
+
   private
 
   def user_params
-    params.require(:users).permit(:user_id)
+    params.require(:users).permit(:id)
   end
 end

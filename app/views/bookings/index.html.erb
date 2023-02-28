@@ -1,41 +1,43 @@
 <div class="container">
-    <h1 class="h1-book"><strong>Bookings</strong></h1>
+    <h1 class="h1-book">Bookings</h1>
   <div class="container-bookings">
     <div class="booking">
       <div class="row m-5">
-        <%# <div class="col-md-8"> %>
-          <% @bookings.each do |booking|%>
-            <div class="booking-card">
-              <div class="p-card-image" style="background-image: url(<%= cl_image_path(booking.paparazzi.photo.key, height: 200)%>)"></div>
-                <div class="booking-card-content">
-                  <div class="booking-card-name">
-                    <%= link_to paparazzi_path(booking.paparazzi), class:"text-decoration-none" do %>
-                          <h4><%= booking.paparazzi.name %></h4>
-                    <% end %>
-                  </div>
-                  <div class="location">
-                    <span><i class="fa-solid fa-location-dot"></i> <%= booking.paparazzi.location %></span>
-                  </div>
-                  <div class="meeting-date">
-                    <span><i class="fa-solid fa-calendar-days"></i> <%= booking.meeting_date.strftime("%e %b %Y %H:%M") %></span>
-                  </div>
-                  <div class="special-request">
-                    <span><strong>Specials:</strong> <%= booking.special_request %></span>
-                  </div>
-                  <div class="rating">
-                    <span><strong>Rating:</strong> <% booking.paparazzi.rating.times do %>
-                    <i class="fas fa-star star-yellow"></i>
-                    <% end %></span>
-                  </div>
+        <% @bookings.each do |booking|%>
+          <div class="booking-card">
+            <div class="p-card-image" style="background-image: url(<%= cl_image_path(booking.paparazzi.photo.key, height: 200)%>)"></div>
+              <div class="booking-card-content">
+                <div class="booking-card-name">
+                  <%= link_to paparazzi_path(booking.paparazzi), class:"text-decoration-none" do %>
+                        <h4><%= booking.paparazzi.name %></h4>
+                  <% end %>
                 </div>
-                <div class="review">
-                  <%= link_to "Leave a review", new_booking_review_path(booking), class:"text-decoration-none" %>
+                <div class="location">
+                  <span><i class="fa-solid fa-location-dot"></i> <%= booking.paparazzi.location %></span>
                 </div>
-                <div class="cancel">Cancel</div>
-            </div>
-          <% end %>
-          <%= link_to "Home", root_path, class: "btn btn-book" %>
-        <%# </div> %>
+                <div class="meeting-date">
+                  <span><i class="fa-solid fa-calendar-days"></i> <%= booking.meeting_date.strftime("%e %b %Y %H:%M") %></span>
+                </div>
+                <div class="special-request">
+                  <span><strong>Specials:</strong> <%= booking.special_request %></span>
+                </div>
+                <div class="rating">
+                <% if booking.paparazzi.rating != nil  %>
+                  <span><strong>Rating:</strong> <% booking.paparazzi.rating.times do %>
+                  <i class="fas fa-star star-yellow"></i>
+                  <% end %></span>
+                <% end %>
+                </div>
+              </div>
+              <div class="cancel">
+                <%= link_to "Cancel", delete_booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "How sure are you?"}, class: "btn-cancel", style:"text-decoration: none" %>
+              </div>
+              <div class="review">
+                <%= link_to "Leave a review", new_booking_review_path(booking), class: "btn-leave-review", style: "text-decoration: none" %>
+              </div>
+          </div>
+        <% end %>
+        <%= link_to "Home", root_path, class: "btn btn-book" %>
       </div>
     </div>
   </div>

@@ -1,13 +1,16 @@
 <div class="container">
-  <div>
-    <br>
-    <h1>New booking</h1>
-    <%= render "form", booking: @booking %>
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <div class="text-center mt-3">
+        <h2>New booking</h2>
+      </div>
+      <%= render "form", booking: @booking %>
 
-    <br>
+      <br>
 
-    <div>
-      <%= link_to "Back to bookings", bookings_path, style: "text-decoration: none" %>
+      <div>
+        <%= link_to "Back to bookings", bookings_path, class: "btn-new-book", style: "text-decoration: none" %>
+      </div>
     </div>
   </div>
 </div>

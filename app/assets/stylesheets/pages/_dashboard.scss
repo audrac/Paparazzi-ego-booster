@@ -1,128 +1,210 @@
+.dashboard-banner {
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  padding: 150px 0;
+  width: 100vw;
+  opacity: 1;
+}
+
 .dashboard-text {
   text-align: center;
   justify-content: center;
   width:100%;
   z-index: 100;
   h4 {
-    color: #192436;
-    margin-top: 50px;
+    color: #ffffff;
+    margin-top: 70px;
+    font-size: 40px;
+    font-weight: bold;
   }
 }
 
-.dashboard-pap-card-category {
-    background-size: cover;
-    background-position: center;
-    height: 180px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    border-radius: 5px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    width: 400px;
-    margin-bottom: 50px;
+.card-image {
+  padding: 0;
 }
 
-.dashboard-pap-box {
-  margin-top: 100px;
-  margin-bottom: 30px;
-  width: 1500px;
+.dashboard-pap-card-image {
+  background-position: center;
+  background-size: cover;
+  height: 150px;
+}
+
+.dashboard-pap-content {
+  padding: 16px;
+}
+
+.pap-cards {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  padding: 0;
+  width: 43%;
+  height: 120px;
+  border-radius: 10px;
 }
 
 .dashboard-pap-buttons {
   display: flex;
- position:absolute;
- margin-top: 110px;
- width: 330px;
+  position:absolute;
+  width: 330px;
   a {
     text-decoration: none;
     color: white;
   }
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: -15px;
+  margin-left: -9px;
 }
 
-.dashboard-pap-edit {
-  margin-right: 100px;
-  margin-left: 30px;
-  border-radius: 50%;
+
+
+
+.dashboard-pap-box {
+  margin-top: 100px;
+  margin-bottom: 30px;
+  width: 1320px;
+}
+
+.edit-button {
+    background: #193563;
+    padding: 5px;
+    font-weight:lighter;
+    padding-left: 22px;
+    padding-right: 20px;
+    font-size: 15px;
+    opacity: 0.7;
+    border-radius: 5%;
+    position: absolute;
+    bottom: 40px;
+    right: -9px;
+  }
+
+.delete-button {
+  background: #d5272a;
   padding: 5px;
-  background-color: green;
   font-weight:lighter;
-  padding-left: 20px;
-  padding-right: 20px;
-  font-size: 20px;
+  font-size: 15px;
   opacity: 0.7;
-}
+  border-radius: 5%;
+  padding-left: 11px;
+  padding-right: 15px;
+  position: absolute;
+  top: -3px;
+  right: -10px;
 
-.dashboard-pap-destroy {
-  border-radius: 50%;
-  padding: 5px;
-  background-color: red;
-  font-weight:lighter;
-  font-size: 20px;
-  opacity: 0.7;
-}
-
-.dashboard-pap-edit:hover {
-  opacity: 1;
-}
-
-.dashboard-pap-destroy:hover {
-  opacity: 1;
 }
 
 .dashboard-bookings-box {
   float: right;
+
 }
 
 .dashboard-booking-card {
-  padding: 10px;
-  border-style: solid;
-  border-radius: 50px;
-  margin-bottom: 20px;
-  text-align: center;
-  background-color: #192436d1;
-  color: white;
-  padding-right: 100px;
-  padding-left: 100px;
-  padding-top: 30px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  background: white;
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 123px;
+  width: 100%;
+}
+
+.dashboard-booking-card .dashboard-booking-body{
+  flex-grow: 1;
+  padding: 0 24px;
+}
+
+.dashboard-booking-card-image{
+  height: 65px;
+  background-position: center;
+  background-size: cover;
 }
 
 .dashboard-booking-buttons {
   display: flex;
-  margin-top: 20px;
+  position: absolute;
+  width: 330px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 67px;
+  margin-left: 65px;
+  color: white;
 }
 
-.dashboard-booking-accept {
-  margin-right: 100px;
-  margin-left: 120px;
-  border-radius: 50%;
-  padding: 5px;
-  background-color: green;
-  font-weight:lighter;
-  padding-left: 20px;
-  padding-right: 20px;
-  font-size: 15px;
-  opacity: 0.7;
-}
+  .button-green{
+    opacity: 0.7;
+    background: #0a7d36;
+    padding: 5px;
+    font-weight:lighter;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 15px;
+    opacity: 0.7;
+    border-radius: 5%;
+    position: absolute;
+    right: -128px;
+    color: white;
+    text-decoration: none;
+    border: none;
+    top: -16px;
+  }
+
 
 .dashboard-booking-reject {
-  border-radius: 50%;
+  background: #d5272a;
   padding: 5px;
-  background-color: red;
   font-weight:lighter;
   font-size: 15px;
   opacity: 0.7;
-  padding-right:15px;
-  padding-left: 15px;
+  border-radius: 5%;
+  padding-left: 20px;
+  padding-right: 19px;
+  left: 462px;
+  position: absolute;
+  a {
+    color: white;
+  }
 }
 
-.dashboard-booking-accept:hover {
+.button-green:hover {
   opacity: 1;
 }
 
 .dashboard-booking-reject:hover {
   opacity: 1;
+}
+
+.bell-yellow{
+  color: rgb(197, 158, 17);
+}
+
+.modal-body {
+  color: black;
+}
+
+.modal-title {
+  color: black;
+}
+
+.modal-header {
+  border: none;
+}
+
+.modal-footer {
+  border: none;
+  justify-content: space-evenly;
+}
+
+.modal-content {
+  border-radius: 10px;
+  background: white;
+  width: 80%;
 }

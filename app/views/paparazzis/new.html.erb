@@ -1,24 +1,24 @@
 <div class="container">
-   <div class="new-pap-form">
-         <br>
-         <h1><strong>Add a New Paparazzi</strong></h1>
-         <%= simple_form_for(@paparazzi) do |f| %>
-         <div class="form-inputs">
-           <%= f.input :name %>
-           <%= f.input :style %>
-           <%= f.input :location %>
-           <%= f.input :price %>
-           <%= f.input :description %>
-           <%= f.input :photo, as: :file %>
-         </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+        <div class="text-center mt-3">
+          <h2>Add a New Paparazzi</h2>
+        </div>
 
-         <div class="form-actions">
-            <div class="form-actions-button">
-               <%= f.button :submit %>
-            </div>
-         </div>
-       <% end %>
+        <%= simple_form_for(@paparazzi) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :name %>
+          <%= f.input :style %>
+          <%= f.input :location %>
+          <%= f.input :price %>
+          <%= f.input :description %>
+          <%= f.input :photo, as: :file %>
+        </div>
 
-         <br>
-   </div>
+        <div class="form-actions">
+          <%= f.button :submit, class: "btn-new-book" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

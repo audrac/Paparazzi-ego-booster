@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_one_attached :photo
   has_many :bookings
-  has_many :paparazzis
+  has_many :paparazzis, dependent: :destroy
 
   validates :user_name, :password, :email, presence: true
   validates :email, uniqueness: true

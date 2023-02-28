@@ -2,7 +2,7 @@ class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      scope.all
+      scope.where(user: user)
     end
   end
 
@@ -20,5 +20,9 @@ class BookingPolicy < ApplicationPolicy
 
   def index?
     return true
+  end
+
+  def destroy?
+    return record.user_id == user.id
   end
 end
