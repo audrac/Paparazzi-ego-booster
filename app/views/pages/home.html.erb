@@ -7,6 +7,10 @@
       <div class="buttons">
         <%= link_to "Sign up!", new_user_registration_path, class: "btn btn-outline-light" %>
         <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-light" %>
+        <% elsif user_signed_in? && current_user.company_name != nil %>
+          <%= link_to "Go to your dashboard", dashboard_path, class: "btn btn-outline-light-dashboard-link" %>
+          <% else %>
+          <%= link_to "Get started", paparazzis_path, class: "btn btn-outline-light-dashboard-link" %>
         <% end %>
       </div>
     </div>
