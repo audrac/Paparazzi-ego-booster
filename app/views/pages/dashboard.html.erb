@@ -11,7 +11,7 @@
       <div class="dashboard-pap-box">
             <%# Below is for the bookings %>
           <div class="dashboard-bookings-box">
-          <h2 class="text-center"> Booking Requests </h2>
+          <h2 class="text-center"style="padding-bottom: 24px"> Booking Requests </h2>
             <% @paparazzis.each do |paparazzi| %>
                 <% if paparazzi.user_id == current_user.id%>
                   <% @bookings.each do |booking| %>
@@ -63,7 +63,7 @@
           </div>
 
           <%# Below is for the paparazzis %>
-          <h2 class="text-center">Your Paparazzis</h2>
+          <h2 class="text-center"style="padding-bottom: 24px">Your Paparazzis</h2>
               <% @paparazzis.each do |paparazzi|%>
                 <% if paparazzi.user_id == current_user.id %>
                   <div class="container">
@@ -75,7 +75,7 @@
                       <div class="dashboard-pap-content col-md-8">
                         <div class="card-body">
                           <h5 class="card-title mt-2"><strong><%= paparazzi.name %></strong></h5>
-                          <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= paparazzi.location.capitalize %></p>
+                          <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= paparazzi.location.split.last %></p>
                           <div class="dashboard-pap-buttons d-flex">
                             <%= link_to "Edit", edit_paparazzi_path(paparazzi), class: "edit-button text-decoration-none" %>
 
