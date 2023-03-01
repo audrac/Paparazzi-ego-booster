@@ -7,6 +7,9 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    if params[:paparazzi]
+      @paparazzi = Paparazzi.find(params[:paparazzi])
+    end
     authorize @booking
   end
 
