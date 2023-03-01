@@ -42,7 +42,7 @@
                   <div class="d-flex justify-content-between">
                     <h6 class="align-self-center m-0"><i class="fa-solid fa-tags"></i>
                     £<strong><%=paparazzi.price.to_i %> / 2h </h6></strong>
-                    <%= link_to "Book!", new_booking_path, class: "btn btn-flat" %>
+                    <%= link_to "Book!", new_booking_path(paparazzi: paparazzi), class: "btn btn-flat" %>
                   </div>
                 </div>
               </div>

@@ -1,9 +1,13 @@
 <%= simple_form_for(@booking) do |f| %>
   <div class="form-inputs">
-    <%= f.association :paparazzi, selected: @paparazzi.id %>
-    <%= f.input :booking_location %>
-    <%= f.input :meeting_date, as: :datetime, order: [:day, :month, :year] %>
-    <%= f.input :special_request %>
+    <% if @paparazzi %>
+      <%= f.association :paparazzi, selected: @paparazzi.id %>
+    <% else %>
+      <%= f.association :paparazzi %>
+    <% end %>
+      <%= f.input :booking_location %>
+      <%= f.input :meeting_date, as: :datetime, order: [:day, :month, :year] %>
+      <%= f.input :special_request %>
   </div>
 
   <div class="form-actions">
